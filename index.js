@@ -28,11 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
   
-app.use(cors({
-    origin: 'https://frontend-06o6.onrender.com', // ✅ Apni frontend URL yahan likho
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type'] // ❌ Authorization hata diya for Signup/Login
-}));
+app.use(cors());
 app.use(bodyParser.json());
 
 app.get('/ping', (req, res) => {
