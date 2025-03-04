@@ -48,7 +48,7 @@ app.get('/ping', (req, res) => {
 
 
 // ✅ Routes (Authorization Applied Where Needed)
-app.use('/auth', AuthRouter);
+app.use('/', AuthRouter);
 app.use('/expenses', ensureAuthenticated, ExpenseRouter);
 app.use('/categories', CategoryRouter);
 app.use('/incomes', ensureAuthenticated, IncomeRouter);

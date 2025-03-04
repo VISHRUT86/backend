@@ -67,7 +67,7 @@ router.post("/reset-password/:token", async (req, res) => {
 });
 
 // ✅ Signup Route (Fixed)
-router.post("/signup", async (req, res) => {
+router.post("/auth/signup", async (req, res) => {
   try {
     const { name, email, password } = req.body;
     const existingUser = await User.findOne({ email });
@@ -93,7 +93,7 @@ router.post("/signup", async (req, res) => {
 
 
 // ✅ Login Route
-router.post("/login", async (req, res) => {
+router.post("/auth/login", async (req, res) => {
   const { email, password } = req.body;
 
   try {
@@ -115,7 +115,7 @@ router.post("/login", async (req, res) => {
 });
 
 // ✅ Get Logged-in User Info
-router.get("/me", ensureAuthenticated, async (req, res) => {
+router.get("/auth/me", ensureAuthenticated, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select("-password");
     res.json(user);
