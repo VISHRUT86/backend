@@ -27,8 +27,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-  
-app.use(cors());
+// ✅ Proper CORS Configuration
+app.use(cors({
+    origin: 'https://frontend-06o6.onrender.com', // ⚠️ Apni frontend URL yahan likho
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+// ✅ Manually handle Preflight requests (OPTIONS)
+app.options('*', cors());
+
 app.use(bodyParser.json());
 
 app.get('/ping', (req, res) => {
