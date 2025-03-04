@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(cors({ origin: "https://frontend1-ux3h.onrender.com/", credentials: true })); // ✅ Allow frontend requests
 // ✅ Allow Frontend Deployed URL
 const corsOptions = {
-    origin: "https://your-frontend-service.onrender.com",
+    origin: "https://frontend-06o6.onrender.com/",
     credentials: true,
   };
   
