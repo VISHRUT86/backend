@@ -25,14 +25,14 @@ const PORT = process.env.PORT || 8080;
 // ✅ Middleware Setup
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use(cors({ origin: "https://frontend1-ux3h.onrender.com/", credentials: true })); // ✅ Allow frontend requests
-// ✅ Allow Frontend Deployed URL
-const corsOptions = {
-    origin: "https://frontend-06o6.onrender.com/",
-    credentials: true,
-  };
+
+
   
-  app.use(cors(corsOptions));
+app.use(cors({
+    origin: 'https://frontend-06o6.onrender.com', // ✅ Apni frontend URL yahan likho
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type'] // ❌ Authorization hata diya for Signup/Login
+}));
 app.use(bodyParser.json());
 
 app.get('/ping', (req, res) => {
