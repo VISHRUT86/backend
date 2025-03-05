@@ -26,14 +26,16 @@ const PORT = process.env.PORT || 8080;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// const cors = require('cors');  // Import CORS
+// app.use(cors());  // Enable CORS for all origins
 
 // ✅ Proper CORS Configuration
 app.use(cors({
-    origin: 'https://f1-6ljh.onrender.com', // ⚠️ Apni frontend URL yahan likho
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
-
+    origin: 'https://f1-6ljh.onrender.com',  // Allow requests only from your frontend
+    methods: 'GET,POST,PUT,DELETE',  // Allow specific HTTP methods
+    allowedHeaders: 'Content-Type,Authorization'  // Allow specific headers
+  }));
+  
 // ✅ Manually handle Preflight requests (OPTIONS)
 app.options('*', cors());
 
