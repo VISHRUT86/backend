@@ -43,6 +43,9 @@ app.get('/ping', (req, res) => {
     res.send('PONG');
 });
 
+app.get('/dashboard', (req, res) => {
+    res.send("Dashboard Route Working!");
+});
 
 
 
