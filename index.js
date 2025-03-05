@@ -29,7 +29,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // ✅ Proper CORS Configuration
 app.use(cors({
-    origin: 'https://frontend-06o6.onrender.com', // ⚠️ Apni frontend URL yahan likho
+    origin: 'https://f1-6ljh.onrender.com', // ⚠️ Apni frontend URL yahan likho
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
